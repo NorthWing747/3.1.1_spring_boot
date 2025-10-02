@@ -46,12 +46,8 @@ public class UserController {
     @GetMapping("/editUser")
     public String showEditUserForm(@RequestParam Long id, Model model) {
         User user = userService.getById(id);
-        if (user != null) {
-            model.addAttribute("user", user);
-            return "editUser";
-        } else {
-            return "redirect:/users?error=user_not_found";
-        }
+        model.addAttribute("user", user);
+        return "editUser";
     }
 
     // Обработка редактирования пользователя
